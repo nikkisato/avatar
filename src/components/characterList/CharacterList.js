@@ -2,6 +2,7 @@ import React from 'react';
 import Character from '../character/Character';
 import PropTypes from 'prop-types';
 import { useAvatarCharacters } from '../../hooks/AvatarHook';
+import styles from '../characterList/CharacterList.css'
 
 const CharacterList = () => {
   const { characters } = useAvatarCharacters();
@@ -10,7 +11,11 @@ const CharacterList = () => {
       <Character name={character.name} photoUrl={character.photoUrl} />
     </li>
   ));
-  return <ul>{CharacterElements}</ul>;
+  return (
+    <div className={styles.flex}>
+      <ul>{CharacterElements}</ul>
+    </div>
+  );
 };
 
 CharacterList.prototype = {
