@@ -1,13 +1,13 @@
 import React from 'react';
 import Character from '../character/Character';
 import PropTypes from 'prop-types';
-import { useAvatarCharacter } from '../../hooks/AvatarHook';
+import { useAvatarCharacters } from '../../hooks/AvatarHook';
 
 const CharacterList = () => {
-  const { character } = useAvatarCharacter();
-  const CharacterElements = character.map(character => (
-    <li key={character.id}>
-      <Character />
+  const { characters } = useAvatarCharacters();
+  const CharacterElements = characters.map(character => (
+    <li key={character._id}>
+      <Character name={character.name} photoUrl={character.photoUrl} />
     </li>
   ));
   return <ul>{CharacterElements}</ul>;

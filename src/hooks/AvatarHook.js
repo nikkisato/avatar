@@ -1,17 +1,16 @@
 import { useState, useEffect } from 'react';
 import { getCharacters } from '../services/avatarApi';
 
-export const useAvatarCharacter = () => {
-  const [character, setCharacterHook] = useState([]);
+export const useAvatarCharacters = () => {
+  const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
-    fetchCharacter();
+    fetchCharacters();
   }, []);
 
-  const fetchCharacter = () => {
-    event.preventDefault();
-    getCharacters().then(character => {
-      setCharacterHook(character);
+  const fetchCharacters = () => {
+    return getCharacters().then(characters => {
+      setCharacters(characters);
     });
   };
 
@@ -19,5 +18,5 @@ export const useAvatarCharacter = () => {
     getCharacters();
   };
 
-  return { handleClick, character };
+  return { handleClick, characters };
 };

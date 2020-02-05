@@ -4,13 +4,13 @@ export const getCharacters = () => {
   ).then(res =>
     res.json().then(characters =>
       characters.map(
-        ({ allies, enemies, photoUrl, name, affiliation, id }) => ({
+        ({ allies, enemies, photoUrl, name, affiliation, _id }) => ({
           allies,
           enemies,
           photoUrl,
           name,
           affiliation,
-          id
+          _id
         })
       )
     )
