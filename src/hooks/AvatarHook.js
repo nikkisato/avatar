@@ -15,9 +15,9 @@ export const useAvatarCharacter = () => {
     });
   };
 
+  const handleClick = () => {
+    getCharacters();
+  };
 
-
-
-
-  
+  return { handleClick, character };
 };

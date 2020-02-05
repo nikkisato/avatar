@@ -1,21 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useAvatarCharacter } from '../../hooks/AvatarHook';
 
-const Character = ({ character }) => {
+const Character = () => {
+  const { character } = useAvatarCharacter();
   return (
     <>
       <section>
-        <h3>{name} </h3>
-        <img src={photoUrl} />
-        <p>{affiliation}</p>
+        <h3>{character.name} </h3>
+        <img src={character.photoUrl} />
+        <p>{character.affiliation}</p>
+        <p>{character.allies}</p>
+        <p>{character.enemies}</p>
       </section>
     </>
   );
 };
 Character.propTypes = {
-  photoUrl: PropTypes.string,
-  affiliation: PropTypes.string,
+  photoUrl: PropTypes.string.isRequired,
+  affiliation: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  enemies: PropTypes.string,
-  allies: PropTypes.string
+  enemies: PropTypes.array.isRequired,
+  allies: PropTypes.array.isRequired
 };
+
+export default Character;
