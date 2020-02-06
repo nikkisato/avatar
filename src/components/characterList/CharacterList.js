@@ -2,7 +2,7 @@ import React from 'react';
 import Character from '../character/Character';
 import PropTypes from 'prop-types';
 import { useAvatarCharacters } from '../../hooks/AvatarHook';
-import styles from '../characterList/CharacterList.css'
+import styles from '../characterList/CharacterList.css';
 
 const CharacterList = () => {
   const { characters } = useAvatarCharacters();
