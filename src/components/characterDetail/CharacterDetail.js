@@ -1,10 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import styles from '../characterList/CharacterList.css';
-const Character = ({ name, photoUrl, allies, enemies, handleClick, weapon }) => {
+const Character = ({ name, photoUrl, allies, enemies, weapon, id }) => {
+  const { id } = useParams();
+  const { avatar } = 
   return (
     <>
-      <section onClick={handleClick}>
+      <section>
         <div className={styles.center}>
           <h3>{name} </h3>
           <img
@@ -28,7 +31,6 @@ Character.propTypes = {
   enemies: PropTypes.string,
   weapon: PropTypes.string,
   allies: PropTypes.string,
-  handleClick: PropTypes.func.isRequired
 };
 
 export default Character;
