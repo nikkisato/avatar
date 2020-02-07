@@ -1,14 +1,18 @@
 import React from 'react';
 import Character from '../character/Character';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useAvatarCharacters } from '../../hooks/AvatarHook';
 import styles from '../characterList/CharacterList.css';
 
 const CharacterList = () => {
   const { characters } = useAvatarCharacters();
+
   const CharacterElements = characters.map(character => (
     <li key={character._id}>
-      <Character name={character.name} photoUrl={character.photoUrl} />
+      <Link to={`/character/${character._id}`}>
+        <Character name={character.name} photoUrl={character.photoUrl} />
+      </Link>
     </li>
   ));
   return (
