@@ -6,7 +6,11 @@ import { useAvatarCharacters } from '../../hooks/AvatarHook';
 import styles from '../characterList/CharacterList.css';
 
 const CharacterList = () => {
-  const { characters } = useAvatarCharacters();
+  const {
+    characters,
+    handleNextClick,
+    handlePrevClick
+  } = useAvatarCharacters();
 
   const CharacterElements = characters.map(character => (
     <li key={character._id}>
@@ -17,6 +21,8 @@ const CharacterList = () => {
   ));
   return (
     <div className={styles.flex}>
+      <button onClick={handlePrevClick}>Prev</button>;
+      <button onClick={handleNextClick}>Next</button>;
       <ul>{CharacterElements}</ul>
     </div>
   );

@@ -18,6 +18,12 @@ export const getCharacters = () => {
   );
 };
 
+export const getPaging = (perPage, pageNumber) => {
+  return fetch(
+    `https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=${perPage}&page=${pageNumber}`
+  ).then(res => res.json());
+};
+
 export const getCharacter = id => {
   return fetch(
     `https://last-airbender-api.herokuapp.com/api/v1/characters/${id}`

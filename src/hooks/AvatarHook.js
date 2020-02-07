@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
-import { getCharacters } from '../services/avatarApi';
+import { getCharacters, getPaging } from '../services/avatarApi';
 
 export const useAvatarCharacters = () => {
   const [characters, setCharacters] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetchCharacters();
-  }, []);
+    getPaging(10, page).then(results => {
+      setCharacters(results);
+    });
+  }, [page]);
 
   const fetchCharacters = () => {
     return getCharacters().then(characters => {
@@ -18,5 +21,14 @@ export const useAvatarCharacters = () => {
     getCharacters();
   };
 
-  return { handleClick, characters };
+  const handleNextClick = () => {
+    setPage(page + 1);
+    console.log(page);
+  };
+  
+  const handlePrevClick = () => {
+    setPage(page - 1);
+    console.log(page);
+  };
+  return { handleClick, characters, handleNextClick, handlePrevClick };
 };
