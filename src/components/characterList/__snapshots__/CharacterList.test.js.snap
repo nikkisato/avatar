@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterList component renders CharacterList 1`] = `
+<div
+  className="flex"
+>
+  <button
+    onClick={[Function]}
+  >
+    Prev
+  </button>
+  ;
+  <button
+    onClick={[Function]}
+  >
+    Next
+  </button>
+  ;
+  <ul />
+</div>
+`;

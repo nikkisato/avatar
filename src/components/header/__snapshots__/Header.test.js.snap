@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders Header 1`] = `
+<header
+  className="header"
+>
+  <Link
+    to="/"
+  >
+    <h1>
+      Avatar the Last Airbender
+    </h1>
+  </Link>
+</header>
+`;
