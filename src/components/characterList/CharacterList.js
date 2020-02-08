@@ -1,0 +1,35 @@
+import React from 'react';
+import Character from '../character/Character';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { useAvatarCharacters } from '../../hooks/AvatarHook';
+import styles from '../characterList/CharacterList.css';
+
+const CharacterList = () => {
+  const {
+    characters,
+    handleNextClick,
+    handlePrevClick
+  } = useAvatarCharacters();
+
+  const CharacterElements = characters.map(character => (
+    <li key={character._id}>
+      <Link to={`/character/${character._id}`}>
+        <Character name={character.name} photoUrl={character.photoUrl} />
+      </Link>
+    </li>
+  ));
+  return (
+    <div className={styles.flex}>
+      <button onClick={handlePrevClick}>Prev</button>;
+      <button onClick={handleNextClick}>Next</button>;
+      <ul>{CharacterElements}</ul>
+    </div>
+  );
+};
+
+CharacterList.prototype = {
+  characters: PropTypes.array.isRequired
+};
+
+export default CharacterList;
